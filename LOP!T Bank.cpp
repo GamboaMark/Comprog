@@ -123,7 +123,7 @@ do {
         cin >> byear;
 	}
 	        
-	cout <<"Birthday : \t\t\t" << bmonth << "/" << bday <<  "/" << byear<<endl;
+	cout <<"Birthday : \t\t\t" << bmonth << "/" << bday <<  "/" << byear;
 
 		
 		age = currentyear - byear; //subtracts the current year to birthyear to get the age
