@@ -71,6 +71,10 @@ do {
 
     cout << "Enter current year: ";
     cin >> currentyear;
+    while (currentyear > 9999){
+    	cout << "Invalid year, enter again: ";
+        cin >> currentyear;
+	}
 	        
 	cout << "Current date = " << currentMonth << "/" << currentday <<  "/" << currentyear<<endl;
 	
@@ -111,15 +115,19 @@ do {
     
     cout << "Enter birth year: ";
     cin >> byear;
+    while (byear > 9999){
+    	cout << "Invalid year, enter again: ";
+        cin >> byear;
+	}
+	
 	        
 	cout <<"Birthday = " << bmonth << "/" << bday <<  "/" << byear<<endl;
 
 		
-		age = currentyear - byear;
-		if (currentMonth < bmonth ||currentMonth == bmonth && currentday < bday) {
+	age = currentyear - byear;
+	if (currentMonth < bmonth ||currentMonth == bmonth && currentday < bday) {
 		age--;	
 		}
-
 		
 		if (age >= 18) {
 	    design2();
@@ -158,7 +166,7 @@ do {
 				balance = inidepo;
 		
 			while (inidepo < 5000) {
-				cout<<"\n\nInitial deposit is not sufficient, reenter: ";
+				cout<<"\nInitial deposit is not sufficient, reenter: ";
 				cin>>inidepo;
 				balance = inidepo;
 			}
@@ -168,7 +176,7 @@ do {
 			cout<<"\nAccount type is "<<acctype<<" account"<<endl;
 			 design2();
      	cout<<"Initial Deposit\n";
-				cout<<"\n\nInitial Deposit(Minimum of 10000): ";
+				cout<<"\nInitial Deposit(Minimum of 10000): ";
 				cin>>inidepo;
 				balance = inidepo;
 			while (inidepo < 10000) {
@@ -246,7 +254,8 @@ do {
 		cin>>password2;
 	}do {
 	if (acctype == "Savings") {
-		cout<<"\nHow much do you want to deposit in your Savings Account? (min 300): ";
+		cout <<"Balance(Savings)= " << balance;
+		cout<<"\n\nHow much do you want to deposit in your Savings Account? (min 300): ";
 		cin>>deposit;
 		while (deposit < 300 || deposit < 0) {
 			cout<<"Entered amount is not valid, try again: ";
@@ -254,7 +263,8 @@ do {
 		}
 	}
 	if (acctype == "Current") {
-		cout<<"\nHow much do you want to deposit in your Current Account? (min 500): ";
+		cout <<"Balance(Current)= " << balance;
+		cout<<"\n\nHow much do you want to deposit in your Current Account? (min 500): ";
 		cin>>deposit;
 		while (deposit < 500 || deposit < 0) {
 			cout<<"Entered amount is not valid, try again: ";
@@ -311,8 +321,10 @@ while (answer2 != 'Y' && answer2 != 'y');
 		cin>>withdraw;
 	}
 	}
- 	    cout<<"\nConfirm withdrawal of(Y/N)"<<withdraw<<" ?";
+ 		cout<<"\nConfirm withdrawal of"<<withdraw<<" ?(Y/N)";
  	    cin>>answer3;
+ 	    
+ 		balance -= withdraw;
  	    
  	    if (answer3 == 'Y' || answer3 == 'Y' ) {
  	          system("cls");
@@ -329,28 +341,25 @@ while (answer2 != 'Y' && answer2 != 'y');
 	//option number 5
 	case 5: 
 	system("cls");
-		design();
-		cout<<"Account Information\n";
-	    if (inidepo > 0) {
-	    		cout<<"\nEnter PIN: ";
-	    		cin>>password4;
-	    		do {
-	    		cout<<"\nWrong password, enter again: ";
-	    		cin>>password4;	
-				}
-				while (password4 != pin);
-	    		
+	design();
+	cout<<"Account Information\n";
+	if (inidepo > 0) {
+	cout<<"Enter PIN: ";
+	cin>>password4;
+	while (password4 != pin){
+		cout<<"Wrong password, enter again: ";
+		cin >>password;	
+	}
 	cout<<"\nFull Name: "<<name;
 	cout<<"\nBirthday: "<<bday<<"/"<<bmonth<<"/"<<byear;
 	cout<<"\nGender: "<<gender;
 	cout<<"\nAccount Type: "<<acctype;
 	cout<<"\nInitial Deposit: "<<inidepo;
 	cout<<"\nCurrent Balance: "<<balance;
-		}
-		else {
+	}
+	else {
 	cout<<"Create an account first.\n\n";
 		}
-	
 	break;
 	
 	//option number 6
@@ -359,15 +368,12 @@ while (answer2 != 'Y' && answer2 != 'y');
 	design();
 	cout<<"Account Closure\n";
 	if (inidepo > 0) {
-		cout<<"Enter PIN: ";
+	cout<<"Enter PIN: ";
 	cin>>password5;
-	
-	do {
+	while(password5 != pin){
 	cout<<"Wrong password, enter again: ";
 	cin>>password5;
 	}
-	while(password5 != pin);
-	
 	
 	cout<<"Do you really want to close the account?(Y/N): ";
 	cin>>answer4;
