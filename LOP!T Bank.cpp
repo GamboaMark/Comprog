@@ -131,6 +131,7 @@ do {
 		}                                                                        // if current month is same with birthmonth but currentday 
                                                                         // is before bday, it will subtract 1 from age. telling that the birthday
                                                                         //this year has not happened yet
+		cout <<"Age : " << age<< " years old \t\t" << "Legal" << endl;
 		
 		if (age >= 18) {  //if age is 18 or above, it will proceed to this part
 	    design2();
@@ -205,8 +206,7 @@ do {
 			 
 			cout<<"Confirm account creation?[Y/N]:\t";
 			cin>>answer6;
-			 if (answer6 == 'Y'|| answer6 =='y') { // if answer is yes then it proceeds below
-				srand(time(0));               //  random number generator for account number
+			if (answer6 == 'Y'|| answer6 =='y') { // if answer is yes then it proceeds below
 				for (int i=0; i<1; i++) {      //
 				accno = rand();  		
 				}
