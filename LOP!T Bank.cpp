@@ -131,7 +131,9 @@ do {
 		}                                                                        // if current month is same with birthmonth but currentday 
                                                                         // is before bday, it will subtract 1 from age. telling that the birthday
                                                                         //this year has not happened yet
-		cout <<"Age : " << age<< " years old \t\t" << "Legal" << endl;
+                                                                        
+        design2();                                                                
+		cout <<"Age : " << age<< " years old \t\t" << "Legal Age" << endl;
 		
 		if (age >= 18) {  //if age is 18 or above, it will proceed to this part
 	    design2();
@@ -215,7 +217,7 @@ do {
 		}	
 			else {
 			system("cls");
-			cout<<"\nYou are too young to open an account.\n\n";
+			cout<<"\nYou are " << age <<" years old to young to open an account.\n\n";
 		}	
 	}
 	while (answer6 != 'Y' && answer6 != 'y'); // loops whole account creation if answer in confirmation is not yes
@@ -289,6 +291,7 @@ do {
 	cin>>answer2;
 	if (answer2 == 'Y' || answer2 =='y') { // adds the deposit to balance using function
 			cout<<"\n\tSuccessfully deposited\t"<<deposit<<endl;
+			deposit_money(deposit);
 			cout<<"\nNew Balance:\t\t\t"<<balance;
 	}
 }
@@ -368,11 +371,12 @@ while (answer2 != 'Y' && answer2 != 'y');  // loops whole deposit when asnwer is
 		cout<<"Full Name:\t\t\t"<<name;
 		cout<<"\nAddress:\t\t\t"<<address;
 		cout<<"\nBirthday:\t\t\t"<<bday<<"/"<<bmonth<<"/"<<byear;
+		cout<<"\nAge:\t\t\t\t"<< age;
 		cout<<"\nGender:\t\t\t\t"<<gender;
-		cout<<"\nAccount Type:\t\t\t"<<acctype;
-		cout<<"\nInitial Deposit:\t\t"<<inidepo;
+		cout<<"\n\nAccount Type:\t\t\t"<<acctype;
+		cout<<"\n\nInitial Deposit:\t\t"<<inidepo;
 		cout<<"\nCurrent Balance:\t\t"<<balance;
-		cout<<"\nAccount Number:\t\t\t"<<accno;
+		cout<<"\n\nAccount Number:\t\t\t"<<accno;
 	}
 	else {
 	cout<<"\t  Create an account first.";
@@ -428,7 +432,7 @@ while (answer5 != 'Y' && answer5!= 'y'); // loops whole program when the answer 
 
 //functions-----------------------------------------------------------------------------------------------------------------------------------
 double deposit_money(double depo) {
-    balance += depo;    // used to add value in balance (deposit, initial deposit)
+    balance += deposit;    // used to add value in balance (deposit, initial deposit)
 	return balance;
 }
 
